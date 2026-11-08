@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iTunes RPG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f2f5;--panel:#fff;--text:#1d1d1f;--muted:#6e6e73;--line:#e4e4ea;--hover:#f8f8fb;--accent:#fc3c44;--up:#16994a;--down:#e0313b;--eq:#8e8e93;--new:#0a72e8;--pk:#d99a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131316;--panel:#1d1d21;--text:#f2f2f4;--muted:#9c9ca4;--line:#2c2c32;--hover:#25252a;--up:#35c45f;--down:#ff5c63;--new:#4ea3ff;--pk:#f0b429;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131316;--panel:#1d1d21;--text:#f2f2f4;--muted:#9c9ca4;--line:#2c2c32;--hover:#25252a;--up:#35c45f;--down:#ff5c63;--new:#4ea3ff;--pk:#f0b429;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.4 Figtree,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.top{background:linear-gradient(110deg,#c9457f 0%,#8d4fc2 55%,#5b4bc9 100%);color:#fff;padding:14px 16px}
+.hd{display:flex;align-items:center;gap:14px}
+.logo{width:42px;height:42px;border-radius:11px;background:#000;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.logo span{background:linear-gradient(145deg,#e0407f,#6b4fd8);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.wrap{max-width:1000px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between}
+h1{margin:0;font-size:26px;font-weight:800;letter-spacing:-.5px}
+.sub{margin:2px 0 0;color:var(--muted);font-size:14px}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+select,input{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);min-width:0}
+input{width:210px}
+:focus-visible{outline:2px solid var(--new);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:16px 0;overflow:hidden}
+.stat{padding:12px 14px;border-right:1px solid var(--line);min-width:0}
+.stat:last-child{border:0}
+.stat small{display:block;color:var(--muted);font-size:12px}
+.stat b{display:block;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat span{color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.demo{display:none;margin:0 0 12px;padding:9px 12px;border-radius:8px;background:rgba(217,154,0,.14);color:var(--text);font-size:13px;border:1px solid var(--pk)}
+.scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:680px}
+th{text-align:left;font-size:12.5px;color:var(--muted);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
+th.n,td.n{text-align:right}
+th[aria-sort]{color:var(--text)}
+th[aria-sort="ascending"]::after{content:" ▴"}
+th[aria-sort="descending"]::after{content:" ▾"}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr.r{cursor:pointer}
+tr.r:hover{background:var(--hover)}
+.pos{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.pos b{font-size:20px;font-weight:800;min-width:28px}
+.v{font-size:12.5px;font-weight:700;padding:2px 7px;border-radius:99px;white-space:nowrap}
+.up{color:var(--up);background:color-mix(in srgb,var(--up) 14%,transparent)}
+.down{color:var(--down);background:color-mix(in srgb,var(--down) 14%,transparent)}
+.eq{color:var(--eq);background:color-mix(in srgb,var(--eq) 16%,transparent)}
+.new,.re{color:var(--new);background:color-mix(in srgb,var(--new) 14%,transparent)}
+.t{font-weight:600}
+.a{color:var(--muted);font-size:13.5px}
+.num{font-variant-numeric:tabular-nums}
+.star{color:var(--pk);font-weight:800}
+.d td{background:var(--hover);padding:14px 16px}
+.dg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;font-size:13.5px}
+.bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;background:var(--accent)}
+.lb{color:var(--muted);font-size:12.5px}
+.note{color:var(--muted);font-size:12.5px;margin:12px 2px 24px}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+@media (max-width:640px){.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.dg{grid-template-columns:1fr}input{width:100%}.tools{width:100%}select{flex:1}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap brand">
+<div class="hd"><div class="logo" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><defs><linearGradient id="ng" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6ab0"/><stop offset="1" stop-color="#a58bff"/></linearGradient></defs><g fill="url(#ng)"><rect x="9" y="4" width="2" height="12.8"/><rect x="18" y="2" width="2" height="12.8"/><path d="M9 4L20 2V5.4L9 7.4Z"/><ellipse cx="7.8" cy="16.8" rx="3.2" ry="2.5"/><ellipse cx="16.8" cy="14.8" rx="3.2" ry="2.5"/></g></svg></div><div><h1>iTunes</h1></div></div>
+<div class="tools"><select id="wk" aria-label="Choose week"></select><input id="q" type="search" placeholder="Search song or artist" aria-label="Search"></div>
+</div></header>
+<main class="wrap" style="padding:20px 16px 0">
+<div class="demo" id="demo">Example week: made-up data to preview the look and the colored arrows. Not valid for the RPG.</div>
+<div class="scroll"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table></div>
+<section class="stats" id="stats"></section>
+<p class="note"><span class="v up">▲</span> up · <span class="v down">▼</span> down · <span class="v eq">=</span> unchanged · <span class="v new">NEW</span> debut · <span class="v re">RE</span> re-entry · <span class="star">★</span> new peak. Peak and weeks count from the first week on record (Mar 4, 2022). Click a song for details.</p>
+</main>
+<script>
+const K=1000;
+const S={1:['Need To Know','Jordyn'],2:['Brand New Chanel$','Kate Moore'],3:['Hypnotize','Hazel'],4:['Sweet Dreams','Allison Summers & Scott Dorian'],5:['Here All Night','Natalie Portman'],6:['You Right','Jordyn & CaioJD'],7:['Don’t Start Now','Natalie Portman'],8:['P.I.M.P','Ben Fryez'],9:['Say Yes To Heaven','Sienna Moreau'],10:['Right Back!','Yaz'],11:['Before I Do','Tasha Steele'],12:['MUDDY','Ray Carter'],13:['Focus','Hazel'],14:['Pleasure','Yaz & CaioJD'],15:['Sativa','Jordyn & RYZE'],16:['Back to Black','Valerie'],17:['Love $ick','Ben Fryez & Flame'],18:['Smooth Operator','Valerie'],19:['The Bridge','Slay'],20:['Where Are U Now','Lewis'],21:['Needs','Jordyn'],22:['After LIKE','Hazel'],23:['I’m Not Here To Make Friends','Hazel']};
+/* Para cadastrar uma semana: [idDaMúsica, vendas (em mil), total (em mil, opcional), posição (opcional, para posições vazias)] */
+const WEEKS=[
+{date:'Mar 4, 2022',rows:[[8,360,390],[4,290,1970],[5,220,260],[1,195,1277],[10,160,1370],[3,130,1630],[7,100,1701],[14,88,200],[13,66,150,10]]},
+{date:'Mar 11, 2022',rows:[[5,340,600],[2,298,373],[1,250,1530],[8,200,590],[4,187,2160],[10,169,1539],[3,143,1773],[7,121,1822],[14,107,307],[11,100,130],[13,88,240],[16,80,160],[17,74,144,15],[12,66,null,16],[18,44,null,20]]},
+{date:'Mar 18, 2022',rows:[[1,360,1890],[2,311,682],[3,270,2043],[4,240,2400],[5,195,800],[6,180,258],[7,155,1980],[8,131,721],[9,114,131],[10,95,1634],[11,88,218],[12,73,140],[13,65,305],[14,57,365],[15,44,60],[16,30,190],[17,25,170],[18,20,74],[19,19,24],[20,16,20],[21,11,14]]},
+{date:'Mar 25, 2022',rows:[[3,315],[1,230],[16,195],[5,163],[2,141],[4,117],[13,109],[8,101],[9,96],[7,89],[10,78],[11,75],[18,72],[20,69,null,15],[6,63,null,19],[12,61,null,21],[14,58,null,23],[21,57,null,24],[22,56,null,25],[15,49,null,30],[17,46,null,32],[19,41,null,38],[23,40,null,39]]}
+];
+const hist={};let prev={};
+WEEKS.forEach((w,i)=>{const cur={};
+ w.out=w.rows.map((r,j)=>{const id=r[0],pos=r[3]||j+1,h=hist[id],sales=r[1]*K,total=r[2]!=null?r[2]*K:(h?h.tot:0)+sales,lw=prev[id]||null;
+  let st='',v=null;
+  if(i>0){if(lw){v=lw-pos;st=v>0?'up':v<0?'down':'eq'}else st=h?'re':'new'}
+  const pk=h?Math.min(h.pk,pos):pos,path=(h?h.path:[]).concat(pos);
+  hist[id]={pk,tot:total,wks:(h?h.wks:0)+1,path};cur[id]=pos;
+  return{id,pos,title:S[id][0],artist:S[id][1],sales,total,lw,v,st,pk,np:!!h&&pos<h.pk,wks:hist[id].wks,path}});
+ prev=cur});
+const $=s=>document.querySelector(s),esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;'),fmt=n=>n.toLocaleString('en-US');
+let wi=WEEKS.map(w=>!w.demo).lastIndexOf(true),key='pos',dir=1,open=new Set();
+const COLS=[['pos','POS',0],['title','Song',0],['sales','Sales','n'],['total','Total','n'],['pk','PEAK','n'],['wks','Wks','n'],['lw','LW','n']];
+
+
+
+$('#wk').innerHTML=WEEKS.map((w,i)=>`<option value="${i}">${w.date}</option>`).join('');
+$('#wk').value=wi;
+$('#wk').onchange=e=>{wi=+e.target.value;open.clear();draw()};
+
+
+
+
+
+$('#q').oninput=draw;
+function chip(r){if(r.st==='new')return'<span class="v new">NEW</span>';if(r.st==='re')return'<span class="v re">RE</span>';if(!r.st)return'<span class="v eq">–</span>';
+ if(r.st==='eq')return'<span class="v eq">=</span>';return`<span class="v ${r.st}">${r.st==='up'?'▲':'▼'}${Math.abs(r.v)}</span>`}
+function draw(){
+ const w=WEEKS[wi],q=$('#q').value.trim().toLowerCase();
+ $('#demo').style.display=w.demo?'block':'none';
+ $('#hd').innerHTML=COLS.map(c=>`<th class="${c[2]}" tabindex="0" data-k="${c[0]}" ${key===c[0]?`aria-sort="${dir>0?'ascending':'descending'}"`:''}>${c[1]}</th>`).join('');
+ document.querySelectorAll('th').forEach(th=>{const go=()=>{const k=th.dataset.k;if(key===k)dir=-dir;else{key=k;dir=(k==='sales'||k==='total'||k==='wks')?-1:1}draw()};th.onclick=go;th.onkeydown=e=>{if(e.key==='Enter')go()}});
+ const o=w.out,top=o[0],sum=o.reduce((a,r)=>a+r.sales,0),nw=o.filter(r=>r.st==='new').length,cl=o.filter(r=>r.st==='up').sort((a,b)=>b.v-a.v)[0];
+ $('#stats').innerHTML=`<div class="stat"><small>Number 1</small><b>${esc(top.title)}</b><span>${esc(top.artist)}</span></div><div class="stat"><small>Debuts</small><b>${WEEKS.indexOf(w)?nw:'–'}</b><span>${WEEKS.indexOf(w)?'new entries':'first week on record'}</span></div><div class="stat"><small>Biggest climb</small><b>${cl?esc(cl.title):'–'}</b><span>${cl?'▲'+cl.v+(cl.v>1?' positions':' position'):'no climbs'}</span></div>`;
+ const val=r=>key==='lw'?(r.lw||999):key==='title'?r.title.toLowerCase():r[key];
+ const rows=o.filter(r=>!q||(r.title+' '+r.artist).toLowerCase().includes(q)).sort((a,b)=>{const x=val(a),y=val(b);return(x>y?1:x<y?-1:a.pos-b.pos)*dir});
+ $('#tb').innerHTML=rows.length?rows.map(r=>{const isO=open.has(r.id),pct=Math.max(4,Math.round(r.sales/top.sales*100));
+  return`<tr class="r" data-id="${r.id}" tabindex="0" aria-expanded="${isO}"><td><div class="pos"><b>#${r.pos}</b>${chip(r)}</div></td><td><div class="t">${esc(r.title)}</div><div class="a">${esc(r.artist)}</div></td><td class="n num">${fmt(r.sales)}</td><td class="n num">${fmt(r.total)}</td><td class="n num">${r.pk}${r.np?' <span class="star" title="New peak">★</span>':''}</td><td class="n num">${r.wks}</td><td class="n num">${r.lw||(r.st==='new'?'NEW':'–')}</td></tr>`+
+  (isO?`<tr class="d"><td colspan="7"><div class="dg"><div><span class="lb">Sales vs. #1 (${pct}%)</span><div class="bar"><i style="width:${pct}%"></i></div></div><div><span class="lb">Position history</span><br><b>${r.path.map(p=>'#'+p).join(' → ')}</b></div><div><span class="lb">Total sold</span><br><b class="num">${fmt(r.total)}</b></div></div></td></tr>`:'')}).join(''):'<tr><td colspan="7" class="empty">No songs found. Try another name.</td></tr>';
+ document.querySelectorAll('tr.r').forEach(tr=>{const t=()=>{const id=+tr.dataset.id;open.has(id)?open.delete(id):open.add(id);draw()};tr.onclick=t;tr.onkeydown=e=>{if(e.key==='Enter')t()}});
+}
+draw();
+</script>
+</body>
+</html>
