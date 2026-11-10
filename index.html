@@ -73,27 +73,35 @@ tr.r:hover{background:var(--hover)}
 <div class="demo" id="demo">Example week: made-up data to preview the look and the colored arrows. Not valid for the RPG.</div>
 <div class="scroll"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table></div>
 <section class="stats" id="stats"></section>
-<p class="note"><span class="v up">▲</span> up · <span class="v down">▼</span> down · <span class="v eq">=</span> unchanged · <span class="v new">NEW</span> debut · <span class="v re">RE</span> re-entry · <span class="star">★</span> new peak. Peak and weeks count from the first week on record (Mar 4, 2022). Click a song for details.</p>
+<p class="note"><span class="v up">▲</span> up · <span class="v down">▼</span> down · <span class="v eq">=</span> unchanged · <span class="v new">NEW</span> debut · <span class="v re">RE</span> re-entry · <span class="star">★</span> new peak. Peak and weeks count from the first week on record (Jan 14, 2022). Click a song for details.</p>
 </main>
 <script>
 const K=1000;
-const S={1:['Need To Know','Jordyn'],2:['Brand New Chanel$','Kate Moore'],3:['Hypnotize','Hazel'],4:['Sweet Dreams','Allison Summers & Scott Dorian'],5:['Here All Night','Natalie Portman'],6:['You Right','Jordyn & CaioJD'],7:['Don’t Start Now','Natalie Portman'],8:['P.I.M.P','Ben Fryez'],9:['Say Yes To Heaven','Sienna Moreau'],10:['Right Back!','Yaz'],11:['Before I Do','Tasha Steele'],12:['MUDDY','Ray Carter'],13:['Focus','Hazel'],14:['Pleasure','Yaz & CaioJD'],15:['Sativa','Jordyn & RYZE'],16:['Back to Black','Valerie'],17:['Love $ick','Ben Fryez & Flame'],18:['Smooth Operator','Valerie'],19:['The Bridge','Slay'],20:['Where Are U Now','Lewis'],21:['Needs','Jordyn'],22:['After LIKE','Hazel'],23:['I’m Not Here To Make Friends','Hazel'],24:['fantasy','Tiana']};
+const S={1:['Need To Know','Jordyn'],2:['Brand New Chanel$','Kate Moore'],3:['Hypnotize','Hazel'],4:['Sweet Dreams','Allison Summers & Scott Dorian'],5:['Here All Night','Natalie Portman'],6:['You Right','Jordyn & CaioJD'],7:['Don’t Start Now','Natalie Portman'],8:['P.I.M.P','Ben Fryez'],9:['Say Yes To Heaven','Sienna Moreau'],10:['Right Back!','Yaz'],11:['Before I Do','Tasha Steele'],12:['MUDDY','Ray Carter'],13:['Focus','Hazel'],14:['Pleasure','Yaz & CaioJD'],15:['Sativa','Jordyn & RYZE'],16:['Back to Black','Valerie'],17:['Love $ick','Ben Fryez & Flame'],18:['Smooth Operator','Valerie'],19:['The Bridge','Slay'],20:['Where Are U Now','Lewis'],21:['Needs','Jordyn'],22:['After LIKE','Hazel'],23:['I’m Not Here To Make Friends','Hazel'],24:['fantasy','Tiana'],25:['No Fair','Ray Carter & Saori Koga'],26:['Houdini','Allison Summers'],27:['SexOnTheBeat','Melinda']};
 /* Para cadastrar uma semana: [idDaMúsica, vendas (em mil), total (em mil, opcional), posição (opcional, para posições vazias)] */
 const WEEKS=[
+{date:'Jan 14, 2022',rows:[[7,280,365],[3,195,240,3]]},
+{date:'Jan 21, 2022',rows:[[4,300,390],[3,235,475],[7,198,563],[10,166,311]]},
+{date:'Jan 28, 2022',rows:[[4,290,680],[7,220,783],[3,190,660],[10,144,455]]},
+{date:'Feb 4, 2022',rows:[[7,298,1083],[4,240,920],[1,201,260],[3,155,815],[10,100,555]]},
+{date:'Feb 11, 2022',rows:[[4,305,1225],[3,260,1015],[1,218,478],[7,180,1263],[10,137,692]]},
+{date:'Feb 18, 2022',rows:[[1,330,808],[3,288,1315],[4,235,1460],[7,198,1461],[10,175,870]]},
+{date:'Feb 25, 2022',rows:[[10,340,1210],[1,275,1083],[4,220,1680],[3,185,1500],[7,140,1601],[14,86,86,10],[13,45,80,11]]},
 {date:'Mar 4, 2022',rows:[[8,360,390],[4,290,1970],[5,220,260],[1,195,1277],[10,160,1370],[3,130,1630],[7,100,1701],[14,88,200],[13,66,150,10]]},
 {date:'Mar 11, 2022',rows:[[5,340,600],[2,298,373],[1,250,1530],[8,200,590],[4,187,2160],[10,169,1539],[3,143,1773],[7,121,1822],[14,107,307],[11,100,130],[13,88,240],[16,80,160],[17,74,144,15],[12,66,null,16],[18,44,null,20]]},
 {date:'Mar 18, 2022',rows:[[1,360,1890],[2,311,682],[3,270,2043],[4,240,2400],[5,195,800],[6,180,258],[7,155,1980],[8,131,721],[9,114,131],[10,95,1634],[11,88,218],[12,73,140],[13,65,305],[14,57,365],[15,44,60],[16,30,190],[17,25,170],[18,20,74],[19,19,24],[20,16,20],[21,11,14]]},
 {date:'Mar 25, 2022',rows:[[3,315],[1,230],[16,195],[5,163],[2,141],[4,117],[13,109],[8,101],[9,96],[7,89],[10,78],[11,75],[18,72],[20,69,null,15],[6,63,null,19],[12,61,null,21],[14,58,null,23],[21,57,null,24],[22,56,null,25],[15,49,null,30],[17,46,null,32],[19,41,null,38],[23,40,null,39]]},
-{date:'Apr 1, 2022',rows:[[1,306],[3,299],[5,218],[16,200],[4,138],[2,130],[10,114],[11,108],[18,100],[8,94],[13,80],[9,77],[7,74],[20,70],[12,61,null,21],[6,57,null,23],[14,55,null,25],[21,51,null,26],[22,47,null,28],[24,44,null,30],[15,41,null,33],[17,38,null,36],[23,36,null,43],[19,35,null,46]]}
+{date:'Apr 1, 2022',rows:[[1,306],[3,299],[5,218],[16,200],[4,138],[2,130],[10,114],[11,108],[18,100],[8,94],[13,80],[9,77],[7,74],[20,70],[12,61,null,21],[6,57,null,23],[14,55,null,25],[21,51,null,26],[22,47,null,28],[24,44,null,30],[15,41,null,33],[17,38,null,36],[23,36,null,43],[19,35,null,46]]},
+{date:'Apr 8, 2022',rows:[[1,316],[3,312],[5,221],[4,196],[16,186],[2,125],[10,110],[11,103],[18,98],[25,97],[7,88],[8,84],[9,77],[13,74],[20,68],[24,63,null,20],[12,62,null,21],[14,52,null,27],[6,51,null,28],[21,49,null,29],[22,46,null,31],[15,40,null,37],[17,37,null,41],[26,36,null,45],[27,35,null,48]]}
 ];
 const hist={};let prev={};
 WEEKS.forEach((w,i)=>{const cur={};
  w.out=w.rows.map((r,j)=>{const id=r[0],pos=r[3]||j+1,h=hist[id],sales=r[1]*K,total=r[2]!=null?r[2]*K:(h?h.tot:0)+sales,lw=prev[id]||null;
-  let st='',v=null;
+  let st='',v=null;const ps=(h&&lw)?h.ls:null;
   if(i>0){if(lw){v=lw-pos;st=v>0?'up':v<0?'down':'eq'}else st=h?'re':'new'}
   const pk=h?Math.min(h.pk,pos):pos,path=(h?h.path:[]).concat(pos);
-  hist[id]={pk,tot:total,wks:(h?h.wks:0)+1,path};cur[id]=pos;
-  return{id,pos,title:S[id][0],artist:S[id][1],sales,total,lw,v,st,pk,np:!!h&&pos<h.pk,wks:hist[id].wks,path}});
+  hist[id]={pk,tot:total,wks:(h?h.wks:0)+1,path,ls:sales};cur[id]=pos;
+  return{id,pos,title:S[id][0],artist:S[id][1],sales,total,lw,v,st,ps,pk,np:!!h&&pos<h.pk,wks:hist[id].wks,path}});
  prev=cur});
 const $=s=>document.querySelector(s),esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;'),fmt=n=>n.toLocaleString('en-US');
 let wi=WEEKS.map(w=>!w.demo).lastIndexOf(true),key='pos',dir=1,open=new Set();
@@ -121,9 +129,9 @@ function draw(){
  $('#stats').innerHTML=`<div class="stat"><small>Number 1</small><b>${esc(top.title)}</b><span>${esc(top.artist)}</span></div><div class="stat"><small>Debuts</small><b>${WEEKS.indexOf(w)?nw:'–'}</b><span>${WEEKS.indexOf(w)?'new entries':'first week on record'}</span></div><div class="stat"><small>Biggest climb</small><b>${cl?esc(cl.title):'–'}</b><span>${cl?'▲'+cl.v+(cl.v>1?' positions':' position'):'no climbs'}</span></div>`;
  const val=r=>key==='lw'?(r.lw||999):key==='title'?r.title.toLowerCase():r[key];
  const rows=o.filter(r=>!q||(r.title+' '+r.artist).toLowerCase().includes(q)).sort((a,b)=>{const x=val(a),y=val(b);return(x>y?1:x<y?-1:a.pos-b.pos)*dir});
- $('#tb').innerHTML=rows.length?rows.map(r=>{const isO=open.has(r.id),pct=Math.max(4,Math.round(r.sales/top.sales*100));
+ $('#tb').innerHTML=rows.length?rows.map(r=>{const isO=open.has(r.id),sc=r.ps?Math.round((r.sales/r.ps-1)*100):null;
   return`<tr class="r" data-id="${r.id}" tabindex="0" aria-expanded="${isO}"><td><div class="pos"><b>#${r.pos}</b>${chip(r)}</div></td><td><div class="t">${esc(r.title)}</div><div class="a">${esc(r.artist)}</div></td><td class="n num">${fmt(r.sales)}</td><td class="n num">${fmt(r.total)}</td><td class="n num">${r.pk}${r.np?' <span class="star" title="New peak">★</span>':''}</td><td class="n num">${r.wks}</td><td class="n num">${r.lw||(r.st==='new'?'NEW':'–')}</td></tr>`+
-  (isO?`<tr class="d"><td colspan="7"><div class="dg"><div><span class="lb">Sales vs. #1 (${pct}%)</span><div class="bar"><i style="width:${pct}%"></i></div></div><div><span class="lb">Position history</span><br><b>${r.path.map(p=>'#'+p).join(' → ')}</b></div><div><span class="lb">Total sold</span><br><b class="num">${fmt(r.total)}</b></div></div></td></tr>`:'')}).join(''):'<tr><td colspan="7" class="empty">No songs found. Try another name.</td></tr>';
+  (isO?`<tr class="d"><td colspan="7"><div class="dg"><div><span class="lb">Chart run</span><br><b>${r.path.map(p=>'#'+p).join(' → ')}</b></div><div><span class="lb">Sales vs. last week</span><br>${sc==null?'<b>–</b> <span class="a">first week on chart</span>':`<b class="num" style="color:var(--${sc>0?'up':sc<0?'down':'eq'})">${sc>0?'▲ +':sc<0?'▼ ':'= '}${sc}%</b> <span class="a">(${fmt(r.ps)})</span>`}</div><div><span class="lb">Total sold</span><br><b class="num">${fmt(r.total)}</b></div></div></td></tr>`:'')}).join(''):'<tr><td colspan="7" class="empty">No songs found. Try another name.</td></tr>';
  document.querySelectorAll('tr.r').forEach(tr=>{const t=()=>{const id=+tr.dataset.id;open.has(id)?open.delete(id):open.add(id);draw()};tr.onclick=t;tr.onkeydown=e=>{if(e.key==='Enter')t()}});
 }
 draw();
