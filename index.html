@@ -12,11 +12,11 @@
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
 :root[data-view="itunes"]{--bg:#e3e3e8;--panel:#f8f8fa;--line:#d3d3db;--hover:#eeeef3}
 :root[data-view="home"]{--bg:#0e0e11;--panel:#1b1b20;--text:#f2f2f4;--muted:#9c9ca4;--line:#2a2a31;--hover:#25252a;--up:#35c45f;--down:#ff5c63;--new:#4ea3ff;--pk:#f0b429;color-scheme:dark}
-:root[data-view="radio"]{--bg:#d9ecf3;--panel:#f3f9fc;--line:#bcd9e5;--hover:#e6f2f8}
+:root[data-view="radio"]{--bg:#0e0f11;--panel:#17181b;--text:#eceef0;--muted:#9aa0a8;--line:#2a2d32;--hover:#1f2125;--up:#5fcf94;--down:#ef767d;--eq:#9aa0a8;--new:#cfd6dd;--pk:#e9edf1;--ra:#cfd6dd;--ra3:#aab2bb;color-scheme:dark}
 :root[data-view="uwc"],:root[data-view="ww"]{--bg:#e4e6e5;--panel:#ffffff;--line:#d6dad8;--hover:#f1f3f2}
 :root[data-view="uwc"] .top{background:linear-gradient(110deg,#0a0f0c 0%,#0d6b3c 60%,#12a65a 100%)}
 :root[data-view="ww"] .top{background:linear-gradient(110deg,#101412 0%,#12804a 60%,#1fbf6a 100%)}
-:root[data-view="hot100"]{--bg:#2a2733;--panel:#363242;--text:#f4f3f7;--muted:#aaa5b8;--line:#4a4558;--hover:#403b4e;--up:#35c45f;--down:#ff5c63;--new:#4ea3ff;--pk:#f0b429;color-scheme:dark}
+:root[data-view="hot100"]{--bg:#000;--panel:#15131b;--text:#f4f3f7;--muted:#aaa5b8;--line:#2a2733;--hover:#1e1b26;--up:#35c45f;--down:#ff5c63;--new:#4ea3ff;--pk:#f0b429;color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -81,6 +81,99 @@ tr.r:hover{background:var(--hover)}
 .t1{margin:3px 0 10px}
 .t1 b{display:block;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .t1 span{color:var(--muted);font-size:13.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+:root[data-view="hot100"] #chart{max-width:1180px}
+.hx{background:#fafafa;color:#1b1b1f;border-color:#d9d6e0}
+.hx table{min-width:980px}
+.hx th{background:#fff;color:#222;font-weight:700;text-align:center;border-bottom:0;padding:12px 8px;font-size:14px}
+.hx th.cs{background:#e6d6f7;color:#5b2d8e}.hx th.ca{background:#c9e6fb;color:#1a5f95}
+.hx td{border-bottom:0;padding:0;text-align:center;font-size:17px;height:56px}
+.hx tr.r:hover td{filter:brightness(.97)}
+.hx td.rk{font-weight:800;font-size:19px;width:56px}
+.hx td.vv{font-weight:800;font-size:16px;width:64px}
+.hx td.vv.s-up{color:#1fa34a;background:transparent}.hx td.vv.s-down{color:#e0373f;background:transparent}.hx td.vv.s-eq{color:#555;background:transparent}.hx td.vv.s-new{color:#1c8fe0;background:transparent}.hx td.vv.s-re{color:#8a4fd6;background:transparent}
+.hx td.sg{text-align:left;padding:6px 14px;min-width:250px}
+.hx td.sg .t{font-size:17px;font-weight:800;color:#15151a}.hx td.sg .a{color:#333;font-size:14.5px}
+.hx td.sg.s-up{background:#dff7cf}.hx td.sg.s-down{background:#fde1e3}.hx td.sg.s-eq{background:#f6f6f6}.hx td.sg.s-new{background:#cfe8fc}.hx td.sg.s-re{background:#e8dcfb}
+.hx td.pm{font-weight:800;width:62px}
+.hx td.npk{background:#fbd88a;font-weight:800}
+.hx td.sl,.hx td.sp{background:#f1e8fb}.hx td.sp{color:#6a3aa0;font-size:15px}
+.hx td.ar,.hx td.ap{background:#d3e9fb}.hx td.ap{color:#1f6aa8;font-size:15px}
+.hx td.sl.mx{background:#d9bff3;font-weight:800}.hx td.ar.mx{background:#9fd0f5;font-weight:800}
+.hx .d td{text-align:left;background:#ececf1;color:#222;padding:14px 16px;height:auto;font-size:14px}
+.hx .d .a,.hx .d .lb{color:#555}
+:root[data-view="itunes"] th{background:#0a0a0e;color:#fff;border-bottom:2px solid #5b4bc9}
+:root[data-view="itunes"] th[aria-sort]{color:#fff}
+:root[data-view="itunes"] .scroll{background:#0a0a0e}
+:root[data-view="itunes"] tbody tr.r td,:root[data-view="itunes"] tbody tr.d td{background:var(--panel)}
+:root[data-view="itunes"] tbody tr.r:hover td{background:var(--hover)}
+.scroll.tl{padding:4px 8px 8px;background:#fff}
+.tl table{border-collapse:separate;border-spacing:6px}
+.tl th{background:transparent;border:0;color:var(--muted);text-align:center;font-size:11.5px;letter-spacing:.4px;text-transform:uppercase;padding:6px 4px}
+.tl th.n{text-align:center}
+.tl td{border:0;background:#f3f2f7;border-radius:8px;padding:10px 12px;text-align:center}
+.tl td.n{text-align:center}
+.tl td.tp{text-align:center}
+.tl td.tp .pos{justify-content:center;flex-direction:column;gap:3px}
+.tl td.tp .pos b{font-size:22px}
+.tl td.cvt{background:transparent;padding:0;width:70px}
+.tl td.cvt .cv{width:64px;height:64px;border-radius:8px}
+.tl td.tt{text-align:left;min-width:240px}
+.tl td.tt .t{font-size:16px;font-weight:800}
+.tl tr.r:hover td:not(.cvt){background:#ebe8f2}
+.tl tr.d td{background:#f3f2f7;border-radius:8px;text-align:left}
+:root[data-view="ww"] .tl th{background:#0b0f0d;color:#3fe08c;border:0;border-radius:8px;text-transform:none;font-size:13px;letter-spacing:0;padding:10px 8px}
+:root[data-view="ww"] .tl th.nos{background:transparent}
+:root[data-view="ww"] .tl th[aria-sort]{color:#fff}
+:root[data-view="ww"] .tl tbody tr.r td{background:#f1f4f2!important;box-shadow:none!important;border:0}
+:root[data-view="ww"] .tl tbody tr.r:nth-child(even) td{background:#e3e8e5!important}
+:root[data-view="ww"] .tl tbody tr.r td.cvt{background:transparent!important}
+:root[data-view="ww"] .tl tbody tr.r td.tp{box-shadow:inset 5px 0 0 #12a65a!important}
+:root[data-view="ww"] .tl tbody tr.r:hover td:not(.cvt){background:#d6e8dd!important}
+:root[data-view="ww"] .tl .sv{justify-content:center;gap:10px}
+:root[data-view="ww"] .tl tr.d td{background:#e8eeea!important;box-shadow:none!important}
+:root[data-view="itunes"] .top{background:linear-gradient(110deg,#0d0b1f 0%,#4332a6 60%,#5b4bc9 100%)}
+:root[data-view="radio"] .top{background:linear-gradient(110deg,#0c0d0f 0%,#2a2e34 55%,#5a6068 100%)}
+:root[data-view="bb200"] .top{background:linear-gradient(110deg,#2a0b1b 0%,#a63068 60%,#c9457f 100%)}
+:root[data-view="hot100"] .top{background:linear-gradient(110deg,#000 0%,#2b1546 55%,#8d4fc2 100%)}
+.onair{display:none;align-items:center;gap:6px;background:#2a0a0f;color:#ff6b73;border:1px solid #6b1c25;font-size:11px;font-weight:800;letter-spacing:1.2px;padding:3px 9px;border-radius:999px;align-self:center}
+.onair::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff3b47;box-shadow:0 0 8px #ff3b47;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+:root[data-view="radio"] .onair{display:inline-flex}
+:root[data-view="radio"] .wbadge{display:none}
+.rd{background:var(--bg);border:1px solid var(--line);padding:4px 10px 10px}
+.rd table{border-collapse:separate;border-spacing:0 6px}
+.rd th{background:transparent;color:var(--ra3);border:0;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:1.3px;text-transform:uppercase;padding:10px 12px}
+.rd th[aria-sort]{color:#fff}
+.rd td{background:var(--panel);border:0;padding:12px;color:var(--text)}
+.rd td:first-child{border-radius:10px 0 0 10px;box-shadow:inset 4px 0 0 var(--ra)}
+.rd td:last-child{border-radius:0 10px 10px 0}
+.rd tr.r:hover td{background:var(--hover)}
+.rd .pos b{font-size:24px;color:var(--ra);font-weight:800}
+.rd .t{font-weight:800;font-size:16px}
+.rd .a{color:var(--muted)}
+.rd td.au{width:170px}
+.rd .aw{display:inline-flex;align-items:baseline;gap:7px}
+.rd .aw b{font-size:22px;font-weight:800;letter-spacing:-.4px;line-height:1}
+.rd .aw span{font-size:12px;color:var(--muted);font-weight:600}
+.rd .aw{background:#2a2d33;border-radius:999px;padding:10px 20px;box-shadow:inset 0 0 0 1px #3a3e45}
+.rd .aw b{color:#fff}
+.rd th{background:#f1f3f5;color:#16181b;border:0;font-weight:800;padding:12px}
+.rd th:first-child{border-radius:10px 0 0 10px}.rd th:last-child{border-radius:0 10px 10px 0}
+.rd th[aria-sort]{color:#000}
+.rd table{border-spacing:0 6px}
+.rd tbody tr.r:nth-child(odd) td{background:#24272c}
+.rd tbody tr.r:nth-child(even) td{background:#121316}
+.rd tbody tr.r:hover td{background:#30343a}
+.rd tbody tr.r:nth-child(odd) .aw{background:#16181b;box-shadow:inset 0 0 0 1px #34383e}
+.rd tbody tr.r:nth-child(even) .aw{background:#2a2d33}
+.rd .aw{width:132px;justify-content:center}
+.rd .v.up{color:var(--up);background:rgba(95,207,148,.14)}.rd .v.down{color:var(--down);background:rgba(239,118,125,.14)}.rd .v.eq{color:var(--eq);background:rgba(154,160,168,.14)}.rd .v.new,.rd .v.re{color:var(--ra);background:rgba(207,214,221,.12)}
+.rd .d td{background:var(--hover);box-shadow:none;border-radius:10px}
+.rd .star{color:#ffc857}
+.rd td:first-child{width:132px}
+.rd td.au{width:auto;padding-right:6px}
+.rd td.cg{text-align:left;width:84px;padding-left:4px}
+.rd th:nth-child(4){text-align:left;padding-left:4px}
 @media (max-width:640px){.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.dg{grid-template-columns:1fr}input{width:100%}.tools{width:100%}select{flex:1}.tiles{grid-template-columns:1fr}}
 :root[data-view="uwc"] th,:root[data-view="ww"] th{background:#0b0f0d;color:#3fe08c;border-bottom:2px solid #12a65a}
 :root[data-view="uwc"] th[aria-sort],:root[data-view="ww"] th[aria-sort]{color:#fff}
@@ -93,6 +186,7 @@ tr.r:hover{background:var(--hover)}
 .sv{display:flex;justify-content:flex-end;align-items:center;gap:8px}
 .sbar{height:4px;background:#e3e8e5;border-radius:3px;margin-top:5px;min-width:110px;overflow:hidden}
 .sbar i{display:block;height:100%;background:linear-gradient(90deg,#0d6b3c,#2fd37a);border-radius:3px}
+.outb{font-style:normal;display:inline-block;background:#000;color:#fff;font-size:11px;font-weight:800;letter-spacing:.5px;padding:1px 7px;border-radius:4px;vertical-align:1px}
 </style>
 </head>
 <body>
@@ -270,14 +364,16 @@ const WWW=[
 ];
 const UWPRE={58:{p:[-1],w:5},66:{p:[-1],w:1}};
 const WWPRE={};
+const HX={"Jun 24, 2022":{"64":[601.1,388,108,53],"10":[574.0,220,151,32],"44":[518.4,215,131,34],"37":[499.1,180,135,30],"65":[429.9,300,70,58],"40":[401.4,275,67,57],"8":[390.7,96,120,20],"45":[384.3,122,109,26],"11":[377.2,158,95,35],"33":[375.8,150,97,33],"66":[365.1,250,61,57],"28":[357.2,190,77,44],"12":[321.6,116,87,30],"67":[315.9,200,58,52],"5":[305.9,100,86,27],"9":[298.7,63,95,17],"38":[289.5,108,77,31],"23":[263.8,43,88,13],"17":[260.2,60,81,19],"1":[237.4,80,66,28],"3":[236.0,72,68,25],"80":[234.6,142,45,50],"7":[226.7,39,75,14],"85":[218.2,170,30,64],"81":[213.2,135,39,52],"82":[204.6,128,38,52],"55":[200.4,104,44,43],"4":[180.4,52,53,24],"2":[171.1,88,38,42],"16":[161.1,44,48,23],"86":[149.0,92,28,51],"46":[114.1,null,null,null],"87":[110.5,55,25,41],"79":[92.7,112,0,100],"47":[73.4,null,null,null],"84":[69.2,84,0,100],"57":[64.2,null,null,null],"69":[62.7,76,0,100],"51":[61.3,null,null,null],"59":[58.5,null,null,null],"15":[57.0,69,0,100],"62":[56.3,null,null,null],"36":[54.9,66,0,100],"52":[53.5,null,null,null],"49":[50.6,null,null,null],"60":[47.8,null,null,null],"39":[47.1,57,0,100],"48":[45.6,null,null,null],"42":[43.5,53,0,100],"61":[42.8,null,null,null],"14":[41.4,50,0,100],"54":[39.9,null,null,null],"68":[39.9,48,0,100],"70":[37.8,46,0,100],"56":[37.1,null,null,null],"43":[37.1,45,0,100],"58":[34.9,42,0,100],"73":[34.9,null,null,null],"71":[34.2,41,0,100],"41":[32.8,40,0,100],"83":[32.1,null,null,null],"27":[31.4,38,0,100],"72":[31.4,null,null,null],"50":[30.7,37,0,100],"31":[29.9,36,0,100],"74":[29.2,35,0,100],"75":[29.2,null,null,null]}};
+const HXP={"Jun 24, 2022":{"1":254.4,"2":188.3,"3":246.3,"4":176.9,"5":321.4,"7":238.4,"8":408.1,"9":319.5,"10":688.3,"11":408.1,"12":349.1,"14":44.7,"15":61.2,"16":178.3,"17":269.5,"23":259.8,"27":29.8,"28":296.0,"31":43.0,"33":367.8,"36":57.9,"37":527.3,"38":310.6,"39":49.6,"40":364.2,"41":32.3,"42":47.1,"43":39.7,"44":478.2,"45":379.7,"50":28.9,"55":117.7,"58":32.3,"64":562.1,"65":404.9,"66":374.0,"67":227.2,"68":74.4,"69":67.8,"70":71.1,"71":38.9,"72":33.1,"73":33.9,"74":35.6,"75":34.7,"79":91.0,"80":215.0,"81":204.4,"82":175.5,"84":79.4,"85":49.4}};
 const CH={
- radio:{name:'Billboard Radio Songs',sub:'Radio airplay audience',c1:'#1fa2c9',c2:'#0f6f9b',noun:'a song',vl:'Audience',unit:'M',novals:true,hist:true,sfx:'M',items:RAI,weeks:RAW,pre:RPRE,mult:1,
-  cols:[['pos','POS'],['title','Song'],['sales','Audience',1],['chg','Change',1],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]},
+ radio:{rbars:true,name:'Billboard Radio Songs',sub:'Radio airplay audience',c1:'#1fa2c9',c2:'#0f6f9b',noun:'a song',vl:'Audience',unit:'M',novals:true,hist:true,sfx:'M',items:RAI,weeks:RAW,pre:RPRE,mult:1,
+  cols:[['pos','POS'],['title','Song'],['sales','Audience (millions)',1],['chg','Change',1],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]},
  uwc:{name:'United World Chart',sub:'Worldwide singles sales',c1:'#0a0f0c',c2:'#12a65a',noun:'a song',vl:'Sales',unit:'sales',third:'total',items:UWI,weeks:UWW,pre:UWPRE,mult:K,bars:true,
   cols:[['pos','POS'],['title','Song'],['sales','Sales',1],['total','Total',1],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]},
- ww:{name:'WW Albums',sub:'Worldwide album sales',c1:'#101412',c2:'#1fbf6a',noun:'an album',vl:'Sales',unit:'sales',third:'total',cover:true,items:BBI,weeks:WWW,pre:WWPRE,mult:K,bars:true,
+ ww:{tiles:true,name:'WW Albums',sub:'Worldwide album sales',c1:'#101412',c2:'#1fbf6a',noun:'an album',vl:'Sales',unit:'sales',third:'total',cover:true,items:BBI,weeks:WWW,pre:WWPRE,mult:K,bars:true,
   cols:[['pos','POS'],['title','Album'],['sales','Sales',1],['total','Total',1],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]},
- bb200:{name:'Billboard 200',sub:'Top albums',c1:'#c9457f',c2:'#a63068',noun:'an album',vl:'Sales',unit:'sales',third:'total',cover:true,items:BBI,weeks:BBW,pre:{7:{p:[87,-1],w:190,t:5926000}},mult:K,
+ bb200:{tiles:true,name:'Billboard 200',sub:'Top albums',c1:'#c9457f',c2:'#a63068',noun:'an album',vl:'Sales',unit:'sales',third:'total',cover:true,items:BBI,weeks:BBW,pre:{7:{p:[0,79,85,85,88,92,96,106,119,117,114,111,109,114,124,132,95,81,87,84,84,85,80,83,83,89,87,-1],w:190,t:5926000,pk:8,nodeb:1}},mult:K,
   cols:[['pos','POS'],['title','Album'],['sales','Sales',1],['total','Total',1],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]},
  hot100:{name:'Billboard Hot 100',sub:'Top songs',c1:'#8d4fc2',c2:'#6d38a3',noun:'a song',novals:true,items:HI,weeks:HW,pre:HPRE,mult:1,
   cols:[['pos','POS'],['title','Song'],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]},
@@ -285,16 +381,16 @@ const CH={
   cols:[['pos','POS'],['title','Song'],['sales','Sales',1],['total','Total',1],['pk','PEAK',1],['wks','Wks',1],['lw','LW',1]]}
 };
 function compute(c){const hist={};let prev={};
- Object.entries(c.pre||{}).forEach(([id,pa])=>{const o=Array.isArray(pa)?null:pa,path=o?o.p:pa,k=path.filter(p=>p>0);hist[id]={pk:k.length?Math.min(...k):999,tot:o?o.t:0,wks:o?(o.w!=null?o.w:k.length):path.length,path:path.slice(),ls:(o&&o.ls)||0,deb:o?{pos:0,sales:0}:{pos:path[0],sales:0}};if(path[path.length-1]>0)prev[id]=path[path.length-1]});
+ Object.entries(c.pre||{}).forEach(([id,pa])=>{const o=Array.isArray(pa)?null:pa,path=o?o.p:pa,k=path.filter(p=>p>0);hist[id]={pk:Math.min(k.length?Math.min(...k):999,(o&&o.pk)||999),tot:o?o.t:0,wks:o?(o.w!=null?o.w:k.length):path.length,path:path.slice(),ls:(o&&o.ls)||0,deb:o?{pos:0,sales:(o.nodeb?1:0)}:{pos:path[0],sales:0},nr:!!(o&&o.nr)};if(path[path.length-1]>0)prev[id]=path[path.length-1]});
  const pre0=Object.keys(prev).length>0;
  c.weeks.forEach((w,i)=>{const cur={};
   w.out=w.rows.map((r,j)=>{const id=r[0],pos=r[3]||j+1,h=hist[id],sales=r[1]!=null?Math.round(r[1]*c.mult):0,total=r[2]!=null?Math.round(r[2]*c.mult):(h?h.tot:0)+sales,lw=prev[id]||null;
    let st='',v=null;const ps=(h&&lw)?(r[5]!=null?sales-Math.round(r[5]*c.mult):h.ls):null;
    if(i>0||pre0){if(lw){v=lw-pos;st=v>0?'up':v<0?'down':'eq'}else st=h?'re':'new'}
    const pk=h?Math.min(h.pk,pos):pos,path=(h?h.path:[]).concat(pos),deb=(h&&!(h.deb.sales===0&&sales>0))?h.deb:{pos,sales};
-   hist[id]={pk,tot:total,wks:(h?h.wks:0)+1,path,ls:sales,deb};cur[id]=pos;
+   hist[id]={pk,tot:total,wks:(h?h.wks:0)+1,path,ls:sales,deb,nr:!!(h&&h.nr)};cur[id]=pos;
    const it=c.items[id];
-   return{id,pos,hid:!!r[4],title:it[0],artist:it[1],cover:it[2]||null,nd:!!it[3],sales,total,lw,v,st,ps,pk,np:!!h&&pos<h.pk,wks:hist[id].wks,path,deb}});
+   return{id,pos,hid:!!r[4],title:it[0],artist:it[1],cover:it[2]||null,nd:!!it[3],sales,total,lw,v,st,ps,pk,np:!!h&&pos<h.pk,wks:hist[id].wks,path,deb,nr:hist[id].nr}});
   w.out=w.out.filter(r=>!r.hid);
   prev=cur})}
 Object.values(CH).forEach(compute);
@@ -308,13 +404,15 @@ function chip(r){if(r.st==='new')return'<span class="v new">NEW</span>';if(r.st=
 function cv(r){if(r.cover)return`<img class="cv" src="${esc(r.cover)}" alt="Cover of ${esc(r.title)}">`;
  const h=(r.id*47)%360;return`<div class="cv" aria-hidden="true" style="background:linear-gradient(145deg,hsl(${h} 55% 46%),hsl(${(h+40)%360} 55% 30%))">${esc(r.title[0].toUpperCase())}</div>`}
 function td(k,r,c){
- if(k==='pos')return`<td><div class="pos"><b>#${r.pos}</b>${chip(r)}</div></td>`;
+ if(c.tiles&&k==='title')return`<td class="cvt">${cv(r)}</td><td class="tt"><div class="t">${esc(r.title)}</div><div class="a">${esc(r.artist)}</div></td>`;
+ if(k==='pos')return`<td${c.tiles?' class="tp"':''}><div class="pos"><b>#${r.pos}</b>${chip(r)}</div></td>`;
  if(k==='title'){const t=`<div class="t">${esc(r.title)}</div><div class="a">${esc(r.artist)}</div>`;return c.cover?`<td><div class="al">${cv(r)}<div>${t}</div></div></td>`:`<td>${t}</td>`}
+ if(k==='sales'&&c.rbars)return`<td class=\"n num au\"><div class=\"aw\"><b>${r.sales}</b><span>M</span></div></td>`;
  if(k==='sales'&&c.bars){const pc=r.lw&&r.ps?Math.round((r.sales/r.ps-1)*100):null,w=Math.max(2,Math.round(r.sales/(window.WMAX||1)*100));
   const ch=pc==null?'<span class="v new">NEW</span>':`<span class="v ${pc>0?'up':pc<0?'down':'eq'}">${pc>0?'▲ +':pc<0?'▼ ':'= '}${pc}%</span>`;
-  return`<td class="n num"><div class="sv"><span>${fmt(r.sales)}</span>${ch}</div><div class="sbar"><i style="width:${w}%"></i></div></td>`}
+  return`<td class="n num"><div class="sv"><span>${fmt(r.sales)}</span>${ch}</div></td>`}
  if(k==='sales')return`<td class="n num">${fmt(r.sales)}${c.sfx||''}</td>`;
- if(k==='chg'){const d=r.lw&&r.ps!=null?r.sales-r.ps:r.sales,cl=d>0?'up':d<0?'down':'eq';return`<td class="n num"><span class="v ${cl}">${d>0?'+':''}${d}${c.sfx||''}</span></td>`}
+ if(k==='chg'){const d=r.lw&&r.ps!=null?r.sales-r.ps:r.sales,cl=d>0?'up':d<0?'down':'eq';return`<td class="n num${c.rbars?' cg':''}"><span class="v ${cl}">${d>0?'+':''}${d}${c.sfx||''}</span></td>`}
  if(k==='total')return`<td class="n num">${r.nd?'–':fmt(r.total)}</td>`;
  if(k==='pk')return r.nd?'<td class="n num">–</td>':`<td class="n num">${r.pk}${r.np?' <span class="star" title="New peak">★</span>':''}</td>`;
  if(k==='wks')return`<td class="n num">${r.nd?'–':r.wks}</td>`;
@@ -324,24 +422,35 @@ $('#wk').onchange=e=>{const s=stt(cur);s.wi=+e.target.value;s.open.clear();draw(
 $('#q').oninput=draw;
 function detail(r,c,sc){
  const pw=r.path.filter(p=>p===r.pk).length;
- const run=r.nd?`<div><span class="lb">Chart run</span><br><b>–</b> <span class="a">details coming soon</span></div>`:`<div><span class="lb">Chart run</span><br><b>${r.path.map(p=>p>0?'#'+p:p<0?'out':'?').join(' → ')}</b><br>${r.deb.pos?`<span class="a">Debut #${r.deb.pos}${c.novals?'':' · '+fmt(r.deb.sales)+' '+c.unit}</span><br>`:''}<span class="a">Peak #${r.pk} · ${pw} ${pw>1?'weeks':'week'}</span></div>`;
+ const run=r.nd?`<div><span class="lb">Chart run</span><br><b>–</b> <span class="a">details coming soon</span></div>`:r.nr?`<div><span class="lb">Chart run</span><br><b>–</b> <span class="a">not available</span></div>`:`<div><span class="lb">Chart run</span><br><b>${r.path.map(p=>p>0?'#'+p:p<0?'<i class="outb">OUT</i>':'not available').join(' → ')}</b><br>${r.deb.pos?`<span class="a">Debut #${r.deb.pos}${c.novals?'':' · '+fmt(r.deb.sales)+' '+c.unit}</span><br>`:''}<span class="a">Peak #${r.pk}${pw?` · ${pw} ${pw>1?'weeks':'week'}`:''}</span></div>`;
  const rest=c.novals
   ?`<div><span class="lb">Weeks on chart</span><br><b class="num">${r.wks}</b></div><div><span class="lb">Last week</span><br><b class="num">${r.lw?'#'+r.lw:'–'}</b></div>`
-  :`<div><span class="lb">${c.vl} vs. last week</span><br>${sc==null?'<b>–</b> <span class="a">first week on chart</span>':`<b class="num" style="color:var(--${sc>0?'up':sc<0?'down':'eq'})">${sc>0?'▲ +':sc<0?'▼ ':'= '}${sc}%</b> <span class="a">(${fmt(r.ps)}${c.sfx||''})</span>`}</div><div><span class="lb">Total sold</span><br><b class="num">${r.nd?'–':fmt(r.total)}</b></div>`;
+  :`<div><span class="lb">${c.vl} vs. last week</span><br>${sc==null?'<b>–</b> <span class="a">'+(r.st==='re'?'re-entry week':'first week on chart')+'</span>':`<b class="num" style="color:var(--${sc>0?'up':sc<0?'down':'eq'})">${sc>0?'▲ +':sc<0?'▼ ':'= '}${sc}%</b> <span class="a">(${fmt(r.ps)}${c.sfx||''})</span>`}</div><div><span class="lb">Total sold</span><br><b class="num">${r.nd?'–':fmt(r.total)}</b></div>`;
  return`<tr class="d"><td colspan="${c.cols.length}"><div class="dg">${run}${rest}</div></td></tr>`}
+const HCOLS=[['pos','Rank',0,'rk'],['v','+/-'],['title','Song'],['pts','Points'],['pc','%'],['pk','Peak'],['wks','WoC'],['sl','Sales','cs'],['ss','%','cs'],['air','Airplay','ca'],['as','%','ca']];
+function hotRow(r,mx){
+ const vv=r.st==='new'?'NEW':r.st==='re'?'RE':r.st==='up'?'+'+r.v:r.st==='down'?String(r.v):'=';
+ const pc=r.pc,pcs=pc==null?'':pc>0?`background:rgba(70,200,100,${Math.min(.8,pc/20+.12)})`:pc<0?`background:rgba(255,90,100,${Math.min(.8,-pc/25+.12)})`:'';
+ const hs=r.sl!=null,ha=r.air!=null;
+ return`<tr class="r" data-id="${r.id}" tabindex="0" aria-expanded="false"><td class="rk">${r.pos}</td><td class="vv s-${r.st}">${vv}</td><td class="sg s-${r.st}"><div class="t">${esc(r.title)}</div><div class="a">${esc(r.artist)}</div></td><td class="pm">${r.pts!=null?Math.round(r.pts):'–'}</td><td class="pm" style="${pcs}">${pc==null?'–':pc+'%'}</td><td class="${r.np?'npk':''}">${r.pk}</td><td>${r.wks}</td><td class="sl${hs&&r.sl===mx.s?' mx':''}">${hs?r.sl+'k':'–'}</td><td class="sp">${r.ss!=null?r.ss+'%':'–'}</td><td class="ar${ha&&r.air===mx.a?' mx':''}">${ha?r.air+'m':'–'}</td><td class="ap">${ha&&r.ss!=null?(100-r.ss)+'%':'–'}</td></tr>`}
 function draw(){
  const c=CH[cur],s=stt(cur),w=c.weeks[s.wi],q=$('#q').value.trim().toLowerCase();
- $('#ct').innerHTML=`<a href="#/">All charts</a><span aria-hidden="true">/</span><b>${c.name}</b><span class="wbadge">🌍 WORLD</span>`;
+ const H=cur==='hot100';document.querySelector('.scroll').classList.toggle('hx',H);document.querySelector('.scroll').classList.toggle('tl',!!c.tiles);document.querySelector('.scroll').classList.toggle('rd',!!c.rbars);
+ $('#ct').innerHTML=`<a href="#/">All charts</a><span aria-hidden="true">/</span><b>${c.name}</b><span class="wbadge">🌍 WORLD</span><span class="onair">ON AIR</span>`;
  $('#demo').style.display=w.demo?'block':'none';
- $('#hd').innerHTML=c.cols.map(col=>`<th class="${col[2]?'n':''}" tabindex="0" data-k="${col[0]}" ${s.key===col[0]?`aria-sort="${s.dir>0?'ascending':'descending'}"`:''}>${col[1]}</th>`).join('');
- document.querySelectorAll('th').forEach(th=>{const go=()=>{const k=th.dataset.k;if(s.key===k)s.dir=-s.dir;else{s.key=k;s.dir=(k==='sales'||k==='total'||k==='wks')?-1:1}draw()};th.onclick=go;th.onkeydown=e=>{if(e.key==='Enter')go()}});
+ $('#hd').innerHTML=(H?HCOLS:c.cols).map(col=>c.tiles&&col[0]==='title'?`<th class="nos"></th><th tabindex="0" data-k="title" ${s.key==='title'?`aria-sort="${s.dir>0?'ascending':'descending'}"`:''}>${col[1]}</th>`:`<th class="${H?(col[2]||''):(col[2]?'n':'')}" tabindex="0" data-k="${col[0]}" ${s.key===col[0]?`aria-sort="${s.dir>0?'ascending':'descending'}"`:''}>${col[1]}</th>`).join('');
+ document.querySelectorAll('th').forEach(th=>{const go=()=>{const k=th.dataset.k;if(s.key===k)s.dir=-s.dir;else{s.key=k;s.dir=(k==='sales'||k==='total'||k==='wks'||k==='pts'||k==='sl'||k==='air')?-1:1}draw()};th.onclick=go;th.onkeydown=e=>{if(e.key==='Enter')go()}});
  window.WMAX=Math.max(1,...w.out.map(r=>r.sales));const o=w.out,top=o[0],nw=o.filter(r=>r.st==='new').length,cl=o.filter(r=>r.st==='up').sort((a,b)=>b.v-a.v)[0];
  $('#stats').innerHTML=`<div class="stat"><small>Number 1</small><b>${esc(top.title)}</b><span>${esc(top.artist)}</span></div><div class="stat"><small>Debuts</small><b>${s.wi||c.hist?nw:'–'}</b><span>${s.wi||c.hist?'new entries':'first week on record'}</span></div><div class="stat"><small>Biggest climb</small><b>${cl?esc(cl.title):'–'}</b><span>${cl?'▲'+cl.v+(cl.v>1?' positions':' position'):'no climbs'}</span></div>`;
- const val=r=>s.key==='lw'?(r.lw||999):s.key==='title'?r.title.toLowerCase():r[s.key];
+ if(H){const hx=HX[w.date]||{},pv=s.wi>0?(HX[c.weeks[s.wi-1].date]||Object.fromEntries(Object.entries(HXP[w.date]||{}).map(([k,v])=>[k,[v]]))):{};
+  o.forEach(r=>{const x=hx[r.id],p=pv[r.id];r.pts=x?x[0]:null;r.sl=x?x[1]:null;r.air=x?x[2]:null;r.ss=x?x[3]:null;r.pc=(x&&p&&p[0])?Math.round((x[0]/p[0]-1)*100):null})}
+ const val=r=>s.key==='lw'?(r.lw||999):s.key==='title'?r.title.toLowerCase():s.key==='v'?(r.v==null?-999:-r.v):H&&['pts','sl','air','pc','ss'].includes(s.key)?(r[s.key]==null?-1:r[s.key]):r[s.key];
  const rows=o.filter(r=>!q||(r.title+' '+r.artist).toLowerCase().includes(q)).sort((a,b)=>{const x=val(a),y=val(b);return(x>y?1:x<y?-1:a.pos-b.pos)*s.dir});
+ const MX=H?{s:Math.max(...o.map(r=>r.sl||0)),a:Math.max(...o.map(r=>r.air||0))}:{};
  $('#tb').innerHTML=rows.length?rows.map(r=>{const isO=s.open.has(r.id),sc=r.ps?Math.round((r.sales/r.ps-1)*100):null;
+  if(H)return hotRow(r,MX).replace('aria-expanded="false"',`aria-expanded="${isO}"`)+(isO?detail(r,c,sc).replace(/colspan="\d+"/,'colspan="11"'):'');
   return`<tr class="r" data-id="${r.id}" tabindex="0" aria-expanded="${isO}">${c.cols.map(col=>td(col[0],r,c)).join('')}</tr>`+
-  (isO?detail(r,c,sc):'')}).join(''):`<tr><td colspan="${c.cols.length}" class="empty">No results. Try another name.</td></tr>`;
+  (isO?detail(r,c,sc).replace(/colspan="\d+"/,'colspan="'+(c.cols.length+(c.tiles?1:0))+'"'):'')}).join(''):`<tr><td colspan="${c.cols.length}" class="empty">No results. Try another name.</td></tr>`;
  document.querySelectorAll('tr.r').forEach(tr=>{const t=()=>{const id=+tr.dataset.id;s.open.has(id)?s.open.delete(id):s.open.add(id);draw()};tr.onclick=t;tr.onkeydown=e=>{if(e.key==='Enter')t()}});
  $('#note').innerHTML=`<span class="v up">▲</span> up · <span class="v down">▼</span> down · <span class="v eq">=</span> unchanged · <span class="v new">NEW</span> debut · <span class="v re">RE</span> re-entry · <span class="star">★</span> new peak. Peak and weeks count from the first week on record (${c.weeks[0].date}). Click ${c.noun} for details.`;
 }
